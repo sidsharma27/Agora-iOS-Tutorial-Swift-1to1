@@ -1,7 +1,7 @@
 # Agora iOS Tutorial for Swift - 1 to 1
 
 ## Integrate the Agora SDK
-Create a new Xcode project and spin it up as a Single View Application. Next, open Terminal and navigate to the project folder. Now, create a Podfile using `pod init` and open the Podfile. Add the 'AgoraRtcEngine_iOS' pod to your Podfile, save it, and install the Podfile back inside Terminal. 
+Create a new Xcode project and spin it up as a Single View Application. Next, open Terminal and navigate to the project folder. Now, create a Podfile using `pod init` and open the Podfile. Add the `AgoraRtcEngine_iOS` pod to your Podfile, save it, and install the Podfile back inside Terminal. 
 
 ```bash
 pod init
