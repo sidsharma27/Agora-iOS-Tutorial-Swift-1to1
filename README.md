@@ -1,4 +1,4 @@
-# Agora iOS Tutorial for Swift - 1to1
+# Agora iOS Tutorial for Swift - 1 to 1
 
 ## Integrate the Agora SDK
 Create a new Xcode project and spin it up as a Single View Application. Next, open Terminal and navigate to the project folder. Now, create a Podfile using `pod init` and open the Podfile. Add the 'AgoraRtcEngine_iOS' pod to your Podfile, save it, and install the Podfile back inside Terminal. 
@@ -27,13 +27,14 @@ First, download the assets provided in this tutorial. These assets are icons for
 
 ### Initialize Agora Native SDK
 ``` swift
-im bimport UIKit
+import UIKit
 import AgoraRtcEngineKit
 
 var agoraKit: AgoraRtcEngineKit!            
+let AppID: String = "Your-App-ID"
 
 func initializeAgoraEngine() {
-    agoraKit = AgoraRtcEngineKit.sharedEngine(withAppId: "APPID", delegate: self)
+    agoraKit = AgoraRtcEngineKit.sharedEngine(withAppId: AppID, delegate: self)
 }
 
 override func viewDidLoad() {   
@@ -44,7 +45,7 @@ override func viewDidLoad() {
 `AgoraRtcEngineKit` is the basic interface class of Agora Native SDK. The `AgoraRtcEngineKit` object enables the use of Agora Native SDK's communication functionality. Create a variable that is an `AgoraRtcEngineKit` object make it an implicitly unwrapped optional. Next, create a function (`initializeAgoraEngine()`) that will initalize the `AgoraRtcEngineKit` class as a singleton instance to initlaize the service before we use it. In the method call, supply two parameters: `withAppId` and `delegate`. Provide your App ID as a String and pass in `self` for the delegate providing the current View Controller (the View Controller controlling the call). The Agora Native SDK uses delegates to inform the application on the engine runtime events (joining/leaving a channel, new participants, etc).  Call the `initializeAgoraEngine()` function inside the `viewDidLoad()` method.
 
 ### Enable Video Mode
-``` swift 
+``` swift
 func setupVideo() { 
     agoraKit.enableVideo()  // Enables video mode.
     agoraKit.setVideoProfile(._VideoProfile_360P, swapWidthAndHeight: false) // Default video profile is 360P
@@ -59,7 +60,7 @@ override func viewDidLoad() {
 Create a function (`setupVideo()`) and enable video mode within the function. In this tutorial, we are enabling video mode before entering a channel so the end user will start in video mode. If it is enabled during a call, it switches from audio to video mode. Next, set the video encoding profile to 360p and set the swapWidthAndHeight parameter to false. Passing true would result in the swapping of the width and height of the stream. Each profile includes a set of parameters such as: resolution, frame rate, bitrate, etc. When the device's camera does not support the specified resolution, the SDK automatically chooses a suitable camera resolution, but the encoder resolution still uses the one specified by setVideoProfile. Afterwards, call `setupVideo()` in the `viewDidLoad()` method.
 
 ### Join Channel
-```
+``` swift
 func joinChannel() {
     agoraKit.joinChannel(byKey: nil, channelName: "demoChannel1", info:nil, uid:0) {[weak self] (sid, uid, elapsed) -> Void in
         if let weakSelf = self {
