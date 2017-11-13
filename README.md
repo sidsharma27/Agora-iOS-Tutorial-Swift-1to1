@@ -19,7 +19,7 @@ end
 
 ## Create UI
 
-![UI][StoryboardSetup.png]
+[Storyboard_Setup.png](https://postimg.org/image/xg1mclbqj/)
 
 First, download the assets provided in this tutorial. These assets are icons for the different buttons added throughout this tutorial. Next, open the `Main.storyboard` file and drag in a View component for the remote video feed. Inside the remote view, add another view which will be used for the local video feed. This view sits on the top right corner in most video chat applications. Using the same height/width & x/y values, create an image view and assign it the `localVideoMutedBg` asset. This image will be used to overlay the remote video feed when the user pauses their video feed. Afterwards, drag an image view to the center of the local video image view and assign it the `videoMutedIndicator` image. Add another image view with the same `videoMutedIndicator` image and center it in the middle of the remote view. On the bottom of the screen, create a view which encapsulates four buttons: Pause Video, Audio Mute, Switch Camera, and Hang Up. Use the appropriate assets for each button and refer to the image above for placement.
 
