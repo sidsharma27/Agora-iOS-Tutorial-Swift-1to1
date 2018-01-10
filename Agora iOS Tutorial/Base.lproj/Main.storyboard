@@ -1,17 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="uDk-gf-dNU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Set Channel View Controller-->
+        <scene sceneID="epq-SF-MWh">
+            <objects>
+                <viewController id="uDk-gf-dNU" customClass="SetChannelViewController" customModule="Agora_iOS_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l5k-oy-QDy"/>
+                        <viewControllerLayoutGuide type="bottom" id="pCl-Pp-ECP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tTg-bS-AhK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Epa-ks-wcb">
+                                <rect key="frame" x="103" y="28" width="168" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9z-ai-ThK">
+                                <rect key="frame" x="103" y="109" width="168" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.68201404809999999" blue="0.93591552970000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Start Call">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startCall:" destination="uDk-gf-dNU" eventType="touchUpInside" id="ZdQ-td-VEL"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hzi-Qc-Gpf">
+                                <rect key="frame" x="103" y="57" width="168" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hzi-Qc-Gpf" firstAttribute="trailing" secondItem="V9z-ai-ThK" secondAttribute="trailing" id="CLk-0S-1uh"/>
+                            <constraint firstItem="Epa-ks-wcb" firstAttribute="leading" secondItem="tTg-bS-AhK" secondAttribute="leadingMargin" constant="87" id="I3E-G8-87A"/>
+                            <constraint firstItem="Epa-ks-wcb" firstAttribute="leading" secondItem="hzi-Qc-Gpf" secondAttribute="leading" id="OJl-EJ-pil"/>
+                            <constraint firstItem="hzi-Qc-Gpf" firstAttribute="leading" secondItem="V9z-ai-ThK" secondAttribute="leading" id="OTi-o8-hqV"/>
+                            <constraint firstItem="hzi-Qc-Gpf" firstAttribute="top" secondItem="Epa-ks-wcb" secondAttribute="bottom" constant="8" symbolic="YES" id="Xnl-NG-EnS"/>
+                            <constraint firstItem="Epa-ks-wcb" firstAttribute="trailing" secondItem="hzi-Qc-Gpf" secondAttribute="trailing" id="bSC-4i-bFe"/>
+                            <constraint firstItem="Epa-ks-wcb" firstAttribute="centerX" secondItem="tTg-bS-AhK" secondAttribute="centerX" id="o8m-A3-QeH"/>
+                            <constraint firstItem="Epa-ks-wcb" firstAttribute="top" secondItem="l5k-oy-QDy" secondAttribute="bottom" constant="8" symbolic="YES" id="pXU-aE-Eb8"/>
+                            <constraint firstItem="V9z-ai-ThK" firstAttribute="top" secondItem="hzi-Qc-Gpf" secondAttribute="bottom" constant="22" id="tMH-Gi-Jqa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="channelName" destination="hzi-Qc-Gpf" id="aVa-h3-lZJ"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="startCall" id="H7W-xm-hUh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sLS-F4-d0n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-887.20000000000005" y="106.59670164917542"/>
+        </scene>
         <!--Video Chat View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -305,6 +362,7 @@
                         <outlet property="localVideoMutedIndicator" destination="LM8-8C-oeg" id="Gqs-o7-RHO"/>
                         <outlet property="remoteVideo" destination="U9u-fT-DFZ" id="vMV-ZP-M0L"/>
                         <outlet property="remoteVideoMutedIndicator" destination="LZg-5L-xeZ" id="mmM-KM-ixK"/>
+                        <segue destination="uDk-gf-dNU" kind="show" identifier="exitCall" id="llh-bR-uyO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

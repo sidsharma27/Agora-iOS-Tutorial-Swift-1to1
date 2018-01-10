@@ -16,9 +16,10 @@ class VideoChatViewController: UIViewController {
     @IBOutlet weak var remoteVideoMutedIndicator: UIImageView!
     @IBOutlet weak var localVideoMutedBg: UIImageView!
     @IBOutlet weak var localVideoMutedIndicator: UIImageView!
+    var channel:String?
 
     var agoraKit: AgoraRtcEngineKit!                 // Tutorial Step 1
-    let AppID: String = <#Your App ID#>                  // Tutorial Step 1
+    let AppID: String = "ba0531a4d71140f2b92ad472b2d595d3"                  // Tutorial Step 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,7 @@ class VideoChatViewController: UIViewController {
     
     // Tutorial Step 3
     func joinChannel() {
-        agoraKit.joinChannel(byKey: nil, channelName: "demoChannel1", info:nil, uid:0) {[weak self] (sid, uid, elapsed) -> Void in
+        agoraKit.joinChannel(byKey: nil, channelName: channel!, info:nil, uid:0) {[weak self] (sid, uid, elapsed) -> Void in
             // Join channel "demoChannel1"
             if let weakSelf = self {
                 weakSelf.agoraKit.setEnableSpeakerphone(true)

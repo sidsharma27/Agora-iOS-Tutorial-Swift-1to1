@@ -20,6 +20,7 @@
 		1ABDEE781D383C62007DE451 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABDEE771D383C62007DE451 /* AudioToolbox.framework */; };
 		1ABDEE7A1D383C66007DE451 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABDEE791D383C66007DE451 /* VideoToolbox.framework */; };
 		1ABDEE7C1D383C71007DE451 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABDEE7B1D383C71007DE451 /* CoreMedia.framework */; };
+		1F7A3EDE20069C550005D7C7 /* SetChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A3EDD20069C550005D7C7 /* SetChannelViewController.swift */; };
 		20BB0F231E8A828C003225FC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BB0F221E8A828C003225FC /* libc++.tbd */; };
 		3799E9FE38B9023C869C3E72 /* Pods_Agora_iOS_Tutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326BE9E749A6E9328CA7EBCC /* Pods_Agora_iOS_Tutorial.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,7 @@
 		1ABDEE7B1D383C71007DE451 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		1ABDEE7D1D383C7C007DE451 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1ABDEE7F1D383C90007DE451 /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "/usr/lib/libc++.1.dylib"; sourceTree = "<absolute>"; };
+		1F7A3EDD20069C550005D7C7 /* SetChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetChannelViewController.swift; sourceTree = "<group>"; };
 		20BB0F221E8A828C003225FC /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		326BE9E749A6E9328CA7EBCC /* Pods_Agora_iOS_Tutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agora_iOS_Tutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA7B0B8CA87E6167453E9C96 /* Pods-Agora iOS Tutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agora iOS Tutorial.release.xcconfig"; path = "Pods/Target Support Files/Pods-Agora iOS Tutorial/Pods-Agora iOS Tutorial.release.xcconfig"; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				1ABDEE481D383BE4007DE451 /* Assets.xcassets */,
 				1ABDEE4A1D383BE4007DE451 /* LaunchScreen.storyboard */,
 				1ABDEE4D1D383BE4007DE451 /* Info.plist */,
+				1F7A3EDD20069C550005D7C7 /* SetChannelViewController.swift */,
 			);
 			path = "Agora iOS Tutorial";
 			sourceTree = "<group>";
@@ -171,9 +174,9 @@
 				TargetAttributes = {
 					1ABDEE3D1D383BE4007DE451 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 48TB6ZZL5S;
+						DevelopmentTeam = 64VSY32GX9;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -266,6 +269,7 @@
 			files = (
 				1ABDEE441D383BE4007DE451 /* VideoChatViewController.swift in Sources */,
 				1ABDEE421D383BE4007DE451 /* AppDelegate.swift in Sources */,
+				1F7A3EDE20069C550005D7C7 /* SetChannelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,8 +391,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuhua Gong (TH5SJ72C94)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuhua Gong (TH5SJ72C94)";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64VSY32GX9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -396,9 +401,9 @@
 				);
 				INFOPLIST_FILE = "Agora iOS Tutorial/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.agora.Agora-iOS-Tutorial";
+				PRODUCT_BUNDLE_IDENTIFIER = com.siDarthVader.agoratest1to1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "87f6e50f-6472-4e90-a6d4-f19c7bd21f23";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
@@ -410,8 +415,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuhua Gong (TH5SJ72C94)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuhua Gong (TH5SJ72C94)";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 64VSY32GX9;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -419,9 +425,9 @@
 				);
 				INFOPLIST_FILE = "Agora iOS Tutorial/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.agora.Agora-iOS-Tutorial";
+				PRODUCT_BUNDLE_IDENTIFIER = com.siDarthVader.agoratest1to1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "87f6e50f-6472-4e90-a6d4-f19c7bd21f23";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
