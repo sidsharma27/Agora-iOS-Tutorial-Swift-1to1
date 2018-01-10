@@ -1,17 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wUx-EL-64k">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Set Channel View Controller-->
+        <scene sceneID="lJv-uD-E2O">
+            <objects>
+                <viewController id="wUx-EL-64k" customClass="SetChannelViewController" customModule="Agora_iOS_Tutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7vZ-Gk-Jba"/>
+                        <viewControllerLayoutGuide type="bottom" id="zcs-1Q-bzg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="h9A-E2-7aS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBV-bB-jMI">
+                                <rect key="frame" x="131" y="70" width="113" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QA2-nf-Csh">
+                                <rect key="frame" x="106" y="99" width="163" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMt-hG-S8O">
+                                <rect key="frame" x="147" y="137" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Yzz-IG-6Rm"/>
+                                </constraints>
+                                <state key="normal" title="Start Call"/>
+                                <connections>
+                                    <action selector="startCall:" destination="wUx-EL-64k" eventType="touchUpInside" id="blf-dL-Dyy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QA2-nf-Csh" firstAttribute="centerX" secondItem="qMt-hG-S8O" secondAttribute="centerX" id="0Cj-Xi-wEB"/>
+                            <constraint firstItem="QA2-nf-Csh" firstAttribute="top" secondItem="dBV-bB-jMI" secondAttribute="bottom" constant="8" symbolic="YES" id="CUP-2c-Jwk"/>
+                            <constraint firstItem="QA2-nf-Csh" firstAttribute="leading" secondItem="h9A-E2-7aS" secondAttribute="leadingMargin" constant="90" id="Jtg-XD-7D9"/>
+                            <constraint firstItem="qMt-hG-S8O" firstAttribute="centerX" secondItem="h9A-E2-7aS" secondAttribute="centerX" id="ZqG-j7-Vre"/>
+                            <constraint firstItem="qMt-hG-S8O" firstAttribute="top" secondItem="QA2-nf-Csh" secondAttribute="bottom" constant="8" symbolic="YES" id="fMh-PD-4Ax"/>
+                            <constraint firstItem="dBV-bB-jMI" firstAttribute="top" secondItem="7vZ-Gk-Jba" secondAttribute="bottom" constant="50" id="yqT-94-Frl"/>
+                            <constraint firstItem="dBV-bB-jMI" firstAttribute="centerX" secondItem="QA2-nf-Csh" secondAttribute="centerX" id="zxc-ot-Edt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="channelName" destination="QA2-nf-Csh" id="Zzd-gU-l1E"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="startCall" id="jCc-mC-t8y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wiB-Cj-d6B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-765.60000000000002" y="133.5832083958021"/>
+        </scene>
         <!--Video Chat View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -24,9 +79,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9u-fT-DFZ" userLabel="remoteVideo">
-                                <rect key="frame" x="16" y="20" width="343" height="647"/>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="videoMutedIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="LZg-5L-xeZ" userLabel="remoteVideoMutedIndicator">
                                 <rect key="frame" x="127.5" y="283.5" width="120" height="100"/>
                                 <constraints>
@@ -261,6 +313,9 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9u-fT-DFZ" userLabel="remoteVideo">
+                                <rect key="frame" x="16" y="20" width="343" height="647"/>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="LZg-5L-xeZ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="16U-kk-LzN"/>
@@ -305,6 +360,7 @@
                         <outlet property="localVideoMutedIndicator" destination="LM8-8C-oeg" id="Gqs-o7-RHO"/>
                         <outlet property="remoteVideo" destination="U9u-fT-DFZ" id="vMV-ZP-M0L"/>
                         <outlet property="remoteVideoMutedIndicator" destination="LZg-5L-xeZ" id="mmM-KM-ixK"/>
+                        <segue destination="wUx-EL-64k" kind="show" identifier="exitCall" id="Ijy-Rl-RpK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
