@@ -26,7 +26,7 @@ class SetChannelViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let viewController = segue.destination as? VideoChatViewController {
+        if let viewController = segue.destination as? VideoCallViewController {
             viewController.channel = channelName.text!
         }
     }

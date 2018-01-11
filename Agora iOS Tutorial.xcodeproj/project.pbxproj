@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		077322E71E8A68A100ABE911 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 077322E61E8A68A100ABE911 /* libresolv.tbd */; };
 		1ABDEE421D383BE4007DE451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABDEE411D383BE4007DE451 /* AppDelegate.swift */; };
-		1ABDEE441D383BE4007DE451 /* VideoChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABDEE431D383BE4007DE451 /* VideoChatViewController.swift */; };
+		1ABDEE441D383BE4007DE451 /* VideoCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABDEE431D383BE4007DE451 /* VideoCallViewController.swift */; };
 		1ABDEE471D383BE4007DE451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDEE451D383BE4007DE451 /* Main.storyboard */; };
 		1ABDEE491D383BE4007DE451 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDEE481D383BE4007DE451 /* Assets.xcassets */; };
 		1ABDEE4C1D383BE4007DE451 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDEE4A1D383BE4007DE451 /* LaunchScreen.storyboard */; };
@@ -29,7 +29,7 @@
 		077322E61E8A68A100ABE911 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		1ABDEE3E1D383BE4007DE451 /* Agora iOS Tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Agora iOS Tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABDEE411D383BE4007DE451 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1ABDEE431D383BE4007DE451 /* VideoChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoChatViewController.swift; path = VideoChat/VideoChatViewController.swift; sourceTree = "<group>"; };
+		1ABDEE431D383BE4007DE451 /* VideoCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewController.swift; sourceTree = "<group>"; };
 		1ABDEE461D383BE4007DE451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1ABDEE481D383BE4007DE451 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ABDEE4B1D383BE4007DE451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		1ABDEE401D383BE4007DE451 /* Agora iOS Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				1ABDEE841D383EB3007DE451 /* Video Chat */,
+				1ABDEE431D383BE4007DE451 /* VideoCallViewController.swift */,
 				1ABDEE411D383BE4007DE451 /* AppDelegate.swift */,
 				1ABDEE451D383BE4007DE451 /* Main.storyboard */,
 				1ABDEE481D383BE4007DE451 /* Assets.xcassets */,
@@ -120,14 +120,6 @@
 				326BE9E749A6E9328CA7EBCC /* Pods_Agora_iOS_Tutorial.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1ABDEE841D383EB3007DE451 /* Video Chat */ = {
-			isa = PBXGroup;
-			children = (
-				1ABDEE431D383BE4007DE451 /* VideoChatViewController.swift */,
-			);
-			name = "Video Chat";
 			sourceTree = "<group>";
 		};
 		2174E81A1F5FF701A9E86ED8 /* Pods */ = {
@@ -174,7 +166,7 @@
 				TargetAttributes = {
 					1ABDEE3D1D383BE4007DE451 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 64VSY32GX9;
+						DevelopmentTeam = SS68NK2VAB;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -267,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ABDEE441D383BE4007DE451 /* VideoChatViewController.swift in Sources */,
+				1ABDEE441D383BE4007DE451 /* VideoCallViewController.swift in Sources */,
 				1ABDEE421D383BE4007DE451 /* AppDelegate.swift in Sources */,
 				1F7A3EDE20069C550005D7C7 /* SetChannelViewController.swift in Sources */,
 			);
@@ -393,7 +385,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuhua Gong (TH5SJ72C94)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 64VSY32GX9;
+				DEVELOPMENT_TEAM = SS68NK2VAB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -401,7 +393,7 @@
 				);
 				INFOPLIST_FILE = "Agora iOS Tutorial/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.siDarthVader.agoratest1to1;
+				PRODUCT_BUNDLE_IDENTIFIER = io.agora.1to1Video;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -417,7 +409,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuhua Gong (TH5SJ72C94)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 64VSY32GX9;
+				DEVELOPMENT_TEAM = SS68NK2VAB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -425,7 +417,7 @@
 				);
 				INFOPLIST_FILE = "Agora iOS Tutorial/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.siDarthVader.agoratest1to1;
+				PRODUCT_BUNDLE_IDENTIFIER = io.agora.1to1Video;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -1,5 +1,5 @@
 //
-//  VideoChatViewController.swift
+//  VideoCallViewController.swift
 //  Agora iOS Tutorial
 //
 //  Created by James Fang on 7/14/16.
@@ -9,7 +9,7 @@
 import UIKit
 import AgoraRtcEngineKit
 
-class VideoChatViewController: UIViewController {
+class VideoCallViewController: UIViewController {
     @IBOutlet weak var localVideo: UIView!
     @IBOutlet weak var remoteVideo: UIView!
     @IBOutlet weak var controlButtons: UIView!
@@ -19,7 +19,7 @@ class VideoChatViewController: UIViewController {
     var channel:String?
 
     var agoraKit: AgoraRtcEngineKit!                 // Tutorial Step 1
-    let AppID: String = "ba0531a4d71140f2b92ad472b2d595d3"                  // Tutorial Step 1
+    let AppID: String = <#Your App Id#>                  // Tutorial Step 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +39,7 @@ class VideoChatViewController: UIViewController {
     
     // Tutorial Step 1
     func initializeAgoraEngine() {
-        agoraKit = AgoraRtcEngineKit.sharedEngine(withAppId: AppID, delegate: self)
+        agoraKit = AgoraRtcEngineKit.sharedEngine(withAppId: AppID, delegate: self as! AgoraRtcEngineDelegate)
     }
 
     // Tutorial Step 2
@@ -51,7 +51,6 @@ class VideoChatViewController: UIViewController {
     // Tutorial Step 3
     func joinChannel() {
         agoraKit.joinChannel(byKey: nil, channelName: channel!, info:nil, uid:0) {[weak self] (sid, uid, elapsed) -> Void in
-            // Join channel "demoChannel1"
             if let weakSelf = self {
                 weakSelf.agoraKit.setEnableSpeakerphone(true)
                 UIApplication.shared.isIdleTimerDisabled = true
@@ -90,7 +89,7 @@ class VideoChatViewController: UIViewController {
     
     // Tutorial Step 6
     func resetHideButtonsTimer() {
-        VideoChatViewController.cancelPreviousPerformRequests(withTarget: self)
+        VideoCallViewController.cancelPreviousPerformRequests(withTarget: self)
         perform(#selector(hideControlButtons), with:nil, afterDelay:3)
     }
     
@@ -128,7 +127,7 @@ class VideoChatViewController: UIViewController {
     // Tutorial Step 11
     func setupButtons() {
         perform(#selector(hideControlButtons), with:nil, afterDelay:3)
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(VideoChatViewController.viewTapped))
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(VideoCallViewController.viewTapped))
         view.addGestureRecognizer(tapGestureRecognizer)
         view.isUserInteractionEnabled = true
     }
@@ -142,7 +141,7 @@ class VideoChatViewController: UIViewController {
     }
 }
 
-extension VideoChatViewController: AgoraRtcEngineDelegate {
+extension VideoCallViewController: AgoraRtcEngineDelegate {
     // Tutorial Step 5
     func rtcEngine(_ engine: AgoraRtcEngineKit!, firstRemoteVideoDecodedOfUid uid:UInt, size:CGSize, elapsed:Int) {
         if (remoteVideo.isHidden) {
