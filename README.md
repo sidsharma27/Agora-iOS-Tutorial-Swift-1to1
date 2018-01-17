@@ -49,7 +49,7 @@ override func viewDidLoad() {
     initializeAgoraEngine();
 }
 ```
-`AgoraRtcEngineKit` is the basic interface class of Agora Native SDK. The `AgoraRtcEngineKit` object enables the use of Agora Native SDK's communication functionality. Create a variable that is an `AgoraRtcEngineKit` object make it an implicitly unwrapped optional. Next, create a function (`initializeAgoraEngine()`) that will initialize the `AgoraRtcEngineKit` class as a singleton instance to initialize the service before we use it. In the method call, supply two parameters: `withAppId` and `delegate`. Provide your App ID as a String and pass in `self` for the delegate providing the current View Controller (the View Controller controlling the call). The Agora Native SDK uses delegates to inform the application on the engine runtime events (joining/leaving a channel, new participants, etc).  Call the `initializeAgoraEngine()` function inside the `viewDidLoad()` method. Lastly, add a String optional (`channel`) for the channel name that will be supplied by the user in a different View Controller that will be built later in this tutorial. 
+`AgoraRtcEngineKit` is the basic interface class of Agora Native SDK. The `AgoraRtcEngineKit` object enables the use of Agora Native SDK's communication functionality. Create a variable that is an `AgoraRtcEngineKit` object make it an implicitly unwrapped optional. Next, create a function (`initializeAgoraEngine()`) that will initialize the `AgoraRtcEngineKit` class as a singleton instance to initialize the service before we use it. In the method call, supply two parameters: `withAppId` and `delegate`. Provide your App ID as a String and pass in `self` for the delegate providing the current View Controller (the View Controller controlling the call). The Agora Native SDK uses delegates to inform the application on the engine runtime events (joining/leaving a channel, new participants, etc).  Call the `initializeAgoraEngine()` function inside the `viewDidLoad()` method. Lastly, add a String optional (`channel`) for the channel name that will be supplied by the user in a different View Controller that will be built later in this tutorial.
 
 ### Enable Video Mode
 ``` swift
@@ -124,13 +124,13 @@ Now it's time to create the view for remote video feed. As before, within the in
 
 ### Adding Channel Choice
 
-In order to allow the user to choose which room they wish to join, you added a simple UI layout consisting of a text field for the channel name input and a button to start the call. Now, just add the text field and button as an outlet and action, respectively. If the text field's text property *is not* nil, call the segue `startCall` to move the user to the `VideoChatViewController` within the IBAction function for the button. If the text field's text property is nil, prompt the user to enter some text for the channel name. Lastly, add the `prepare(for segue:)` function in order to pass along the user inputted channel name to the `VideoChatViewController`.
+In order to allow the user to choose which room they wish to join, you added a simple UI layout consisting of a text field for the channel name input and a button to start the call. Now, just add the text field and button as an outlet and action, respectively. If the text field's text property *is not* empty, call the segue `startCall` to move the user to the `VideoChatViewController` within the IBAction function for the button. If the text field's text property is empty, prompt the user to enter some text for the channel name. Lastly, add the `prepare(for segue:)` function in order to pass along the user inputted channel name to the `VideoChatViewController`.
 
 ```
 @IBOutlet weak var channelName: UITextField!
 
 @IBAction func startCall(_ sender: UIButton) {
-    if (channelName.text != nil) {
+    if (channelName.text?.isEmpty)! {
         self.performSegue(withIdentifier: "startCall", sender: self)
     } else {
         print("Enter Channel Name")

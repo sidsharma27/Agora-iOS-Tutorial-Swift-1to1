@@ -14,10 +14,10 @@ class SetChannelViewController: UIViewController {
     @IBOutlet weak var channelName: UITextField!
     
     @IBAction func startCall(_ sender: UIButton) {
-        if (channelName.text != nil) {
-            self.performSegue(withIdentifier: "startCall", sender: self)
-        } else {
+        if (channelName.text?.isEmpty)! {
             print("Enter Channel Name")
+        } else {
+            self.performSegue(withIdentifier: "startCall", sender: self)
         }
     }
     
