@@ -19,7 +19,7 @@ class VideoCallViewController: UIViewController {
     var channel:String?
 
     var agoraKit: AgoraRtcEngineKit!                 // Tutorial Step 1
-    let AppID: String = "<#Your App Id#>"                  // Tutorial Step 1
+    let AppID: String = <#Your App Id#>                  // Tutorial Step 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
