@@ -6,7 +6,7 @@
 - Agora.io Developer Account
 
 ## Agora.io Account
-If you haven't already, [create an Agora.io developer account](dashboard.agora.io/signup). Once you finish the sign up process, you will be redirected to the Dashboard. Feel free to use the sample project's App ID for this tutorial.
+If you haven't already, [create an Agora.io developer account](https://www.dashboard.agora.io/signup). Once you finish the sign up process, you will be redirected to the Dashboard. Feel free to use the sample project's App ID for this tutorial.
 
 ## Integrate the Agora SDK
 Create a new Xcode project and spin it up as a Single View Application. Next, open Terminal and navigate to the project folder. Now, create a Podfile using `pod init` and open the Podfile. Add the `AgoraRtcEngine_iOS` pod to your Podfile, save it, and install the Podfile back inside Terminal.
