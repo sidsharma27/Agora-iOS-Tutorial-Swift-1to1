@@ -27,6 +27,10 @@ end
 
 ## File updates & create UI
 
+In  the `Info.plist` file, make sure to add the Privacy Settings for both the camera and the microphone in order for the device to access them.
+
+![Info_Plist.png](/Info_Plist.png)
+
 Change the file name from `ViewController.swift` to `VideoCallViewController.swift` for a more relevant file name as this will be the view controller we set up for the video call. Next, add a file (`SetChannelViewController.swift`) in order to allow the user to choose which channel to join. We will go ahead and dive into the code for each of these files after we set up the storyboard.
 
 ![Storyboard_Setup.png](/StoryboardSetup.png)
