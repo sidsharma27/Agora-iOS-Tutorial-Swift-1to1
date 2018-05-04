@@ -1,6 +1,6 @@
-# Agora iOS Tutorial for Swift - 1 to 1
+# Agora iOS 1-to-1 Tutorial for Swift
 
-The *Agora iOS Tutorial for Swift - 1 to 1* sample enables you to quickly get started in your development efforts to create an iOS app with real-time video calls, voice calls, and interactive broadcasting. With this sample app you can:
+This tutorial enables you to quickly get started in your development efforts to create an iOS app with real-time video calls, voice calls, and interactive broadcasting. With this sample app you can:
 
 * Start and end audio/visual communication between two users.
 * Join a communication channel.
@@ -10,62 +10,71 @@ The *Agora iOS Tutorial for Swift - 1 to 1* sample enables you to quickly get st
 
 ## Prerequisites
 - Xcode
-- Some knowledge of Swift
 - An Agora.io Developer Account
 
 ## Quick Start
 This section shows you how to prepare, build, and run the sample application.
 
 ### Create an Account and Obtain an App ID
-In order to build and run the sample application you must obtain an App ID as follows: 
+In order to build and run the sample application you must obtain an App ID: 
 
 1. Create a developer account at [agora.io](https://www.agora.io/). Once you finish the sign up process, you will be redirected to the Dashboard.
 2. Navigate in the Dashboard tree on the left to **Projects** > **Project List**.
-3. Locate the *Default Project* and copy the value for **App ID**.
+3. Locate the **Default Project** and copy the value for **App ID**.
 
 ### Obtain and Build the Sample Application 
 
-1. Clone the [Agora iOS Tutorial for Swift - 1 to 1 Sample App for iOS repository](https://github.com/sidsharma27/Agora-iOS-Tutorial-Swift-1to1) from GitHub.
+1. Clone this respository.
 2. Open the project file **Agora iOS Tutorial.xcodeproj** in Xcode.
 3. In the Project Navigator, navigate to **Agora iOS Tutorial** > **Agora iOS Tutorial** 
 4. Open **VideoCallViewController.swift**.
 5. Locate the following line and replace *<#Your App Id#>* with the App ID that you obtained from the Dashboard.
 
 ```let AppID: String = <#Your App Id#>                  // Tutorial Step 1```
+
 6. Build and run the project. This should display the application on your iOS device or emulator.
 
-## Creating the App
+
+## Steps to Create the Sample 
 The following are the main steps that were used to create the sample:
 
-* [Integrating the Agora SDK](#integrating-the-agora-sdk)
-* [Setting Permissions for the Camera and Microphone](#setting-permissions-for-the-camera-and-microphone)
-* [Preparing the Video Call View Controller](#preparing-the-video-call-view-controller)
-* [Preparing the Set Channel View](#preparing-the-set-channel-view)
-* [Initializing the Agora SDK](#initializing-the-agora-sdk)
-* [Configuring the Video Mode](#configuring-the-video-mode)
-* [Joining a Channel](#joining-a-channel)
-* [Setting up Local Video](#setting-up-local-video)
-* [Adding Delegate Methods](#adding-delegate-methods)
-* [Adding Channel Selection](#adding-channel-selection)
-* [Hanging Up and Ending the Call](#hanging-up-and-ending-the-call)
-* [Muting Audio](#muting-audio)
-* [Muting Video](#muting-video)
+* [Set up the project](#set-up-the-project)
+ * * [Import the Agora SDK](#import-the-agora-sdk)
+ * * [Set Permissions](#set-permissions)
+ * * [Create Visual Assets](#create-visual-assets)
+ * * [Design the User Interface](#design-the-user-interface)
+ * * [Prepare the Video Call View Controller](#prepare-the-video-call-view-controller)
+ * * [Prepare the Channel View Controller](#prepare-the-channel-view-controller)
 
-## Exploring the Project
-The following subsections provide more detail about how the sample project was created and the purpose of the code and resources that were added.
+* [Configure Resources](#configure-resources)
+ * * [Create an Agora Instance](#create-an-agora-instance)
+ * * [Configure the Video Mode](#configure-the-video-mode)
+ * * [Join a Channel](#join-a-channel)
+ * * [Set up Local Video](#set-up-local-video)
+ * * [Add Delegates](#add-delegates)
 
-For detail about the APIs used to develop this sample, see the [Agora.io Documentation](https://docs.agora.io/en/2.2).
+* [Manage Communication Features](#manage-communication-features)
+ * * [Channel Selection](#channel-selection)
+ * * [Hang Up and End the Call](#hang-up-and-end-the-call)
+ * * [Mute Audio and Video](#mute-audio-and-video)
+ * * [Toggle Cameras](#toggle-cameras)
+ * * [Hide Video Views](#hide-video-views)
+ * * [Hide Buttons](#hide-buttons)
 
-### Integrating the Agora SDK
+For details about the APIs used to develop this sample, see the [Agora.io Documentation](https://docs.agora.io/en/2.2).
+
+## Set up the project
+
+### Import the Agora SDK
 The sample's Xcode project is a *Single View Application*. 
 
-To integrate the SDK into the project, a pod file was created in the same location as the Xcode project file using the following command in Terminal:
+To integrate the SDK into the project, a pod file was created in the same location as the Xcode project file using the following command:
 
 ```bash
 pod init
 ```
 
-The new pod file was modified to include the *AgoraRtcEngine_iOS* pod:
+The new pod file was modified to include the `AgoraRtcEngine_iOS` pod:
 
 ```bash
 target 'AgoraVideoQuickstart' do
@@ -74,61 +83,67 @@ target 'AgoraVideoQuickstart' do
 end
 ```
 
-The modified file was then installed using the following command in Termainal:
+The modified file was then installed using the following command:
 
 ```bash
 pod install
 ```
 
-### Setting Permissions for the Camera and Microphone
+### Set Permissions
 In the `Info.plist` file, the privacy settings for the camera and microphone were set to **Video Chat** to allow the app to access them:
 ![Info_Plist.png](/Info_Plist.png)
 
+### Create Visual Assets
+The following icon assets for the user interface were added to the *Assets.xcassets* folder:
 
-### Exploring the Art Assets
-The following icon assets for the user interface were added to the *Assets.xcassets* folder. These are used for the user interface buttons that the user will interact with:
+|Asset                   |Description                                                                                        |
+|------------------------|---------------------------------------------------------------------------------------------------|
+|hangUpButton|an image of a red telephone for a *hang up* button.|
+|localVideoMutedBg|the background image for a video mute button.|
+|muteButton|a picture of a microphone to mute audio.|
+|muteButtonSelected|a picture of a microphone with a cross through it to indicate that the audio is muted.|
+|switchCameraButton|a picture of a camera and rotational arrows to switch between the two cameras.|
+|switchCameraButtonSelected|a highlighted picture of a camera and rotational arrows to indicate that the rear camera is in use.|
+|videoMuteButton|a picture of a camera to mute video.|
+|videoMuteButtonSelected|a picture of a camera highlighted to indicate that video is muted.|
+|videoMuteButtonIndicator|a picture of a camera crossed out to indicate the camera is off.|
 
-* **hangUpButton**: an image of a red telephone for a *hang up* button.
-* **localVideoMutedBg**: the background image for a video mute button.
-* **muteButton**: a picture of a microphone to mute audio.
-* **muteButtonSelected**: a picture of a microphone with a cross through it to indicate that the audio is muted.
-* **switchCameraButton**: a picture of a camera and rotational arrows to switch between the two cameras.
-* **switchCameraButtonSelected**: a highlighted picture of a camera and rotational arrows to indicate that the rear camera is in use.
-* **videoMuteButton**: a picture of a camera to mute video.
-* **videoMuteButtonSelected**: a picture of a camera highlighted to indicate that video is muted.
-* **videoMuteButtonIndicator**: a picture of a camera crossed out to indicate the camera is off.
 
-### Preparing the User Interface
-The *Agora iOS Tutorial for Swift - 1 to 1* sample is based around the [model-view-controller](https://en.wikipedia.org/wiki/Model–view–controller) pattern. The *Main.storyboard* file defines the user interface and makes use of two view controllers: *VideoCallViewController.swift* and *SetChannelViewController.swift*.
 
-#### Preparing the Video Call View Controller
+### Design the User Interface
+The sample was developed using the [model-view-controller](https://en.wikipedia.org/wiki/Model–view–controller) pattern. The *Main.storyboard* file defines the user interface and makes use of two view controllers: *VideoCallViewController.swift* and *SetChannelViewController.swift*.
+
+#### Prepare the Video Call View Controller
 *VideoCallViewController.swift* defines a view that handles a video call. Note that its file *VideoCallViewController.swift* was renamed from the default file name *ViewController.swift* to reflect the purpose of the view.
 
 The main aspects of the Video Call View Controller on the storyboard are shown here:
 ![Storyboard_Setup2.png](/StoryboardSetup.png)
 
-* *View*: a view which handles the main video feed. This view contains other views (described next).
-* *remoteVideo* a view showing the remote, incoming video feed (i.e the video that the user will see).
-* *remoteVideoMutedIndicator*: a view showing an icon indicating that remote video is muted.
-* *localVideo*: a smaller view at the top right corner showing the local video feed.
-* *localVideoMutedBg*: a gray background to indicate that local video is muted when the user pauses their video feed.
-* *localVideoMutedIndicator* an icon which is overlaid and centered over the `localVideoMutedBg` view to indicate that local video is muted.
-* *controlButtons*: a view that encapsulates four buttons: Pause Video, Audio Mute, Switch Camera, and Hang Up. Each button uses the art assets described above.
+|Component                |Description                                                                                                                                 |
+|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+|View                     |a view which handles the main video feed. This view contains other views (described next).|
+|remoteVideo              |a view showing the remote, incoming video feed (i.e the video that the user will see).|
+|remoteVideoMutedIndicator|a view showing an icon indicating that remote video is muted.|
+|localVideo               |a smaller view at the top right corner showing the local video feed.|
+|localVideoMutedBg        |a gray background to indicate that local video is muted when the user pauses their video feed.|
+|localVideoMutedIndicator |an icon which is overlaid and centered over the `localVideoMutedBg` view to indicate that local video is muted.|
+|controlButtons           |a view that encapsulates four buttons: Pause Video, Audio Mute, Switch Camera, and Hang Up. Each button uses the art assets described above.|
 
-#### Preparing the Set Channel View
+#### Prepare the Channel View Controller
 *SetChannelViewController.swift* defines a view that handles channel selection.
 
-The main aspects of the Set Channel View Controller on the storyboard are shown here:
+The main aspects of the Channel View Controller on the storyboard are shown here:
 ![Storyboard_Setup2.png](/StoryboardSetup2.png)
 
 * A segue (`exitCall`) from `VideoCallViewController` to `SetChannelViewController` is called to end the video call once the user has pressed the *Hang Up* button.
 * A text field for the user to input a channel name 
 * A button to start the video call.
  
-## Adding Agora Functionality
+
+## Configure Resources
 The following subsections describe how the Agora API is used to add Agora functionality to the app.
 
-### Initializing the Agora SDK
+### Create an Agora Instance
 The code samples in this section are from *VideoCallViewController.Swift*.
 
 `AgoraRtcEngineKit` is the interface of the Agora API that provides communication functionality. Once imported, a singleton can be created by invoking [sharedEngine](https://docs.agora.io/en/2.2/product/Interactive%20Gaming/API%20Reference/game_ios?platform=iOS) during initialization, passing the application ID and a reference to self as the delegate. The Agora API uses delegates to inform the application about Agora engine runtime events (e.g. joining/leaving a channel, the addition of new participants, etc). 
@@ -155,7 +170,7 @@ override func viewDidLoad() {
 }
 ```
 
-### Configuring the Video Mode
+### Configure the Video Mode
 The next step is to enable video mode, configure the video encoding profile, and specify if the width and height can change when switching from portrait to landscape:
 
 ``` swift
@@ -171,12 +186,13 @@ override func viewDidLoad() {
     ...
 }
 ```
+
 In the sample, a helper method called `setupVideo()` contains this logic and is invoked by `viewDidLoad()`. It starts by enabling video with [enableVideo](https://docs.agora.io/en/2.2/product/Video/API%20Reference/communication_ios_video?platform=iOS). The video encoding profile is then set to 360p and the `swapWidthAndHeight` parameter is set to false via [setVideoProfile](https://docs.agora.io/en/2.2/product/Video/API%20Reference/communication_ios_video). Each profile includes a set of parameters such as: resolution, frame rate, bitrate, etc. If a device's camera does not support the specified resolution, the SDK automatically chooses a suitable camera resolution. However, the encoder resolution still uses the profile specified by `setVideoProfile()`. 
 
 Since this configuration takes place before entering a channel, the end user will start in video mode rather than audio mode. If video mode were to be enabled enabled during a call, the app will switch from audio to video mode. 
 
 
-### Joining a Channel
+### Join a Channel
 A helper method called `joinChannel()` invokes `agoraKit.joinChannel()` enables a user to join a specific channel:
 
 ``` swift
@@ -206,7 +222,7 @@ In the sample, the helper method `joinChannel()` is invoked by `viewDidLoad()`:
 }
 ```
 
-### Setting up Local Video
+### Set up Local Video
 The logic for the local video feed is contained within a helper method called `setupLocalVideo()` that is invoked by `viewDidLoad()`:
 
 ``` swift
@@ -233,8 +249,7 @@ override func viewDidLoad() {
 
 The call to [setupLocalVideo](https://docs.agora.io/en/2.2/product/Interactive%20Broadcast/API%20Reference/communication_mac_video) then passes `AgoraRtcVideoCanvas` object that was just created.
 
-
-### Adding Delegate Methods
+### Add Delegates
 The `VideoCallViewController` class extends `AgoraRtcEngineDelegate`:
 
 ``` swift
@@ -269,11 +284,10 @@ The `rtcEngine(_engine:  AgoraRtcEngineKit, didOfflineOfUid uid: UInt, reason: A
 
 The `rtcEngine(engine: AgoraRtcEngineKit, didVideoMuted muted: UInt, byUid: UInt)` is invoked when a remote user pauses their stream. This method toggles the remote video user inteface elements.
 
+## Manage Communication Features
 
-## Adding Other Functionality
-
-### Adding Channel Selection
-The *Set Channel View Controller* allows the user to specify the channel they wish to join through a textbox for the channel name and a button to start the call. The text field was added as an outlet and the button was added as an action. The logic to handle this in the sample is implemented in `SetChannelViewController.swift`:
+### Channel Selection
+The *Channel View Controller* allows the user to specify the channel they wish to join through a textbox for the channel name and a button to start the call. The text field was added as an outlet and the button was added as an action. The logic to handle this in the sample is implemented in `SetChannelViewController.swift`:
 
 ``` swift
 @IBOutlet weak var channelName: UITextField!
@@ -299,7 +313,7 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
 The `prepare(for segue:)` method is invoked to obtain the name of the channel and to pass it to the `VideoChatViewController`.
 
-### Hanging Up and Ending the Call
+### Hang Up and End the Call
 *Video Call View Controller* contains a helper function called `leaveChannel()` with the logic to leave the current video call (channel). This is invoked by the `IBAction` for the *Hang-Up* button:
 
 ```swift
@@ -329,7 +343,7 @@ func hideControlButtons() {
 * sets `agoraKit` to `nil` to remove the reference to the `AgoraRtcEngineKit` object.
 
 
-### Muting Audio
+### Mute Audio and Video
 To allow the user to mute audio, the `IBAction` for the mute button invokes `agoraKit.muteLocalAudioStream()` passing in `sender.isSelected`:
 
 ```swift
@@ -346,9 +360,9 @@ Once muted the helper method `resetHideButtonsTimer()` is invoked to cancel any 
 func resetHideButtonsTimer() {
     VideoCallViewController.cancelPreviousPerformRequests(withTarget: self)
     perform(#selector(hideControlButtons), with:nil, afterDelay:3)
-```}
+}
+```
 
-### Muting Video
 To allow the user to mute local video (i.e. to prevent video of the current user from being broadcast to other users), the `IBAction` for the *video button* invokes [muteLocalVideoStream](https://docs.agora.io/en/2.2/product/Interactive%20Broadcast/API%20Reference/communication_mac_video#mute-a-specified-remote-audio-stream-muteremoteaudiostream):
 
 ```swift
@@ -364,7 +378,7 @@ To allow the user to mute local video (i.e. to prevent video of the current user
 
 Once muted, the views related to the local view are hidden and the helper method `resetHideButtonsTimer()` is invoked to cancel any *perform* requests and to ensure the control buttons are hidden.
 
-### Switching Cameras
+### Toggle Cameras
 To enable the user to choose between the front and rear cameras, an `IBAction` for the *camera switch button* invokes [switchCamera](https://docs.agora.io/en/2.2/product/Interactive%20Broadcast/Solutions/live_plus_ios?platform=iOS#id3) to add the camera switch functionality:  
 
 ```swift
@@ -376,7 +390,7 @@ To enable the user to choose between the front and rear cameras, an `IBAction` f
 ```
 
 
-### Hiding Local and Remote Video Views
+### Hide Video Views
 To hide all the image views that are meant to appear when either the remote or local video feeds are paused, the sample defines the `hideVideoMuted()' helper method. This method is invoked from `viewDidLoad()` to ensure the videos are hidden on startup:
 
 ```swift
@@ -388,7 +402,7 @@ func hideVideoMuted() {
 ```
 
 
-### Keeping the Interface Clean
+### Hide Buttons
 For a refined user experience, the sample hides the view containing the buttons after three seconds, to make the user interface appear cleaner. The sample uses a helper method called `setupButtons()` which calls the `hideControlButtons()` function after three seconds, and is invoked by `viewDidLoad()`:
 
 ```swift
@@ -410,6 +424,6 @@ func viewTapped() {
 }
 ```
 
-## Conclusion
+## Resources
 If you have any questions, please feel free to reach out via [e-mail](mailto:sid.sharma@agora.io) or [Twitter](https://twitter.com/sidsharma_27).
 
