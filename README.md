@@ -24,34 +24,36 @@ In order to build and run the sample application you must obtain an App ID:
 
 ### Obtain and Build the Sample Application 
 
-1. Clone this respository.
+1. Clone this repository.
 2. Open the project file **Agora iOS Tutorial.xcodeproj** in Xcode.
-3. In the Project Navigator, navigate to **Agora iOS Tutorial** > **Agora iOS Tutorial** 
+3. In the Project Navigator, navigate to **Agora iOS Tutorial** > **Agora iOS Tutorial**.
 4. Open **VideoCallViewController.swift**.
-5. Locate the following line and replace *<#Your App Id#>* with the App ID that you obtained from the Dashboard.
+5. Locate the following line and replace *<#Your App Id#>* with the App ID in the dashboard.
 
    ```let AppID: String = <#Your App Id#>```
 
-6. Build and run the project. This should display the application on your iOS device or emulator.
+6. Build and run the project. This will display the application on your iOS device or emulator.
 
 
 ## Steps to Create the Sample 
-* [Set up the project](#set-up-the-project)
-* [Configure Resources](#configure-resources)
-* [Manage Communication Features](#manage-communication-features)
 
+Use this workflow to develop a 1-to-1 application:
+
+1. [Set up the project](#set-up-the-project)
+2. [Configure Resources](#configure-resources)
+3. [Manage Communication Features](#manage-communication-features)
 
 For details about the APIs used to develop this sample, see the [Agora.io Documentation](https://docs.agora.io/en/2.2).
 
 ## Set up the project
 
 To set up the project:
-* [Import the Agora SDK](#import-the-agora-sdk)
-* [Set Permissions](#set-permissions)
-* [Create Visual Assets](#create-visual-assets)
-* [Design the User Interface](#design-the-user-interface)
-* [Prepare the Video Call View Controller](#prepare-the-video-call-view-controller)
-* [Prepare the Channel View Controller](#prepare-the-channel-view-controller)
+1. [Import the Agora SDK](#import-the-agora-sdk)
+2. [Set Permissions](#set-permissions)
+3. [Create Visual Assets](#create-visual-assets)
+4. [Design the User Interface](#design-the-user-interface)
+5. [Prepare the Video Call View Controller](#prepare-the-video-call-view-controller)
+6. [Prepare the Channel View Controller](#prepare-the-channel-view-controller)
 
 ### Import the Agora SDK
 The sample's Xcode project is a *Single View Application*. 
@@ -82,11 +84,11 @@ In the `Info.plist` file, set the privacy settings for the camera and microphone
 ![Info_Plist.png](/Info_Plist.png)
 
 ### Create Visual Assets
-The following icon assets for the user interface were added to the *Assets.xcassets* folder:
+Add the following icon assets for the user interface to the *Assets.xcassets* folder:
 
 |Asset                   |Description                                                                                        |
 |------------------------|---------------------------------------------------------------------------------------------------|
-|`hangUpButton`|An image of a red telephone for a *hang up* button.|
+|`hangUpButton`|An image of a red telephone for a hang up button.|
 |`localVideoMutedBg`|The background image for a video mute button.|
 |`muteButton`|A picture of a microphone to mute audio.|
 |`muteButtonSelected`|A picture of a microphone with a cross through it to indicate that the audio is muted.|
@@ -104,7 +106,7 @@ The sample was developed using the [model-view-controller](https://en.wikipedia.
 #### Prepare the Video Call View Controller
 *VideoCallViewController.swift* defines a view that handles a video call. Note that its file *VideoCallViewController.swift* was renamed from the default file name *ViewController.swift* to reflect the purpose of the view.
 
-The main aspects of the Video Call View Controller on the storyboard are shown here:
+These are the main aspects of the Video Call View Controller on the storyboard:
 ![Storyboard_Setup2.png](/StoryboardSetup.png)
 
 |Component                |Description                                                                                                                                 |
@@ -115,7 +117,7 @@ The main aspects of the Video Call View Controller on the storyboard are shown h
 |`localVideo`               |A smaller view at the top right corner showing the local video feed.|
 |`localVideoMutedBg`        |A gray background to indicate that local video is muted when the user pauses the video feed.|
 |`localVideoMutedIndicator` |An icon that is overlaid and centered over the `localVideoMutedBg` view to indicate that local video is muted.|
-|`controlButtons`           |A view that encapsulates four buttons: **Pause Video**, **Audio Mute**, **Switch Camera**, and **Hang Up**. Each button uses the art assets described above.|
+|`controlButtons`           |A view that encapsulates four buttons: **Pause Video**, **Audio Mute**, **Switch Camera**, and **Hang Up**. Each button uses the assets described above.|
 
 #### Prepare the Channel View Controller
 *SetChannelViewController.swift* defines a view that handles channel selection.
@@ -123,9 +125,9 @@ The main aspects of the Video Call View Controller on the storyboard are shown h
 The main aspects of the Channel View Controller on the storyboard are shown here:
 ![Storyboard_Setup2.png](/StoryboardSetup2.png)
 
-* A segue (`exitCall`) from `VideoCallViewController` to `SetChannelViewController` is invoked to end the video call once the user has pressed the *Hang Up* button.
-* A text field where the user inputs a channel name.
-* A button to start the video call.
+* A segue (`exitCall`) from `VideoCallViewController` to `SetChannelViewController` ends the video call once the user has pressed the *Hang Up* button.
+* The text field is where the user inputs a channel name.
+* The button starts the video call.
  
 
 ## Configure Resources
@@ -137,9 +139,9 @@ To configure 1-to-1 communication resources:
  5. [Set up Video Call View Controller](#set-up-video-call-view-controller)
 
 ### Create an Agora Instance
-The code samples in this section are from *VideoCallViewController.Swift*.
+The code samples in this section are in *VideoCallViewController.Swift*.
 
-`AgoraRtcEngineKit` is the interface of the Agora API that provides communication functionality. Once imported, a singleton can be created by invoking [sharedEngine](https://docs.agora.io/en/2.2/product/Interactive%20Gaming/API%20Reference/game_ios?platform=iOS) during initialization, passing the application ID and a reference to self as the delegate. The Agora API uses delegates to inform the application about Agora engine runtime events (e.g. joining/leaving a channel, the addition of new participants, etc). 
+`AgoraRtcEngineKit` is the interface of the Agora API that provides communication functionality. Once imported, create a singleton instance by invoking [sharedEngine](https://docs.agora.io/en/2.2/product/Interactive%20Gaming/API%20Reference/game_ios?platform=iOS) during initialization, passing the application ID and a reference to `self` as the delegate. The Agora API uses delegates to inform the application about Agora engine runtime events such as joining or leaving a channel and the addition of new participants. 
 
 In the sample project, a helper method called `initializeAgoraEngine()` contains this logic and is invoked by `viewDidLoad()`;
 
