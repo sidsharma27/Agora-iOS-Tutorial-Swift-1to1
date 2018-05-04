@@ -267,20 +267,20 @@ func rtcEngine(_ engine: AgoraRtcEngineKit!, didVideoMuted muted:Bool, byUid:UIn
 }
 ```
 
-The `rtcEngine(engine: AgoraRtcEngineKit, firstRemoteVideoDecodedOfUid uid: UInt, size: CGSize, elapsed: Int)` delegate method is invoked once connected with another user and the first remote video frame is received and decoded. This method performs the followoing:
-* checks if the `remoteVideo` view is hidden and unhides it if it is hidden.
-* initializes the `AgoraRtcVideoCanvas` object.
-* sets the `uid` property to 0 to allow Agora to chose a random UID for the stream feed. 
-* sets the `view` property to the `remoteVideo` view from the storyboard.
-* sets `renderMode` to `render_Fit` to ensure that if the video size is different than that of the display window, the video is resized proportionally to fit the window. 
-* invokes `agoraKit.setupRemoteVideo(videoCanvas)` passing in the `AgoraRtcVideoCanvas` object that was just created.
+The `rtcEngine(engine: AgoraRtcEngineKit, firstRemoteVideoDecodedOfUid uid: UInt, size: CGSize, elapsed: Int)` delegate method is invoked once connected with another user and the first remote video frame is received and decoded. This method performs the following actions:
+* Checks if the `remoteVideo` view is hidden and unhides it if it is hidden.
+* Initializes the `AgoraRtcVideoCanvas` object.
+* Sets the `uid` property to 0 to allow Agora to choose a random UID for the stream feed. 
+* Sets the `view` property to the `remoteVideo` view from the storyboard.
+* Sets `renderMode` to `render_Fit` to ensure the video is resized proportionally to fit the display window. 
+* Invokes `agoraKit.setupRemoteVideo(videoCanvas)` passing in the `AgoraRtcVideoCanvas` object that was just created.
 
 The `rtcEngine(_engine:  AgoraRtcEngineKit, didOfflineOfUid uid: UInt, reason: AgoraRtcUserOfflineReason)` delegate is invoked when another user leaves the channel. This method sets the `remoteVideo` view to be hidden when a user leaves the call.
 
 The `rtcEngine(engine: AgoraRtcEngineKit, didVideoMuted muted: UInt, byUid: UInt)` is invoked when a remote user pauses their stream. This method toggles the remote video user inteface elements.
 
 ## Manage Communication Features
-Implement the following communiction features:
+Implement the following communication features:
 * [Channel Selection](#channel-selection)
 * [Hang Up and End the Call](#hang-up-and-end-the-call)
 * [Mute Audio and Video](#mute-audio-and-video)
@@ -309,11 +309,11 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 }
 ```
 
-`startCall()` performs the following:
+The `startCall()` method performs the following actions:
 * If the text field contains a value, the segue `startCall` navigates the user to the `VideoChatViewController` within the `IBAction` for the button.
-* If the text field does not contain a value, prompt the user to enter some text for the channel name. 
+* If the text field does not contain a value, the method prompts the user to enter some text for the channel name. 
 
-The `prepare(for segue:)` method is invoked to obtain the name of the channel and to pass it to the `VideoChatViewController`.
+The `prepare(for segue:)` method is invoked to obtain the name of the channel and pass it to the `VideoChatViewController`.
 
 ### Hang Up and End the Call
 *Video Call View Controller* contains a helper function called `leaveChannel()` with the logic to leave the current video call (channel). This is invoked by the `IBAction` for the *Hang-Up* button:
@@ -337,16 +337,16 @@ func hideControlButtons() {
 }
 ```
 
-`leaveChannel()` performs the following:
-* invokes `agoraKit.leaveChannel()` to leave the channel
-* invokes the helper method `hideControlButtons()` to hide the `controlButtons` view containing the bottom buttons.
-* re-enables the application's idle timer.
-* removes both the local and remote video views.
-* sets `agoraKit` to `nil` to remove the reference to the `AgoraRtcEngineKit` object.
+The `leaveChannel()` method:
+* Invokes `agoraKit.leaveChannel()` to leave the channel
+* Invokes the helper method `hideControlButtons()` to hide the `controlButtons` view containing the bottom buttons.
+* Re-enables the application's idle timer.
+* Removes both the local and remote video views.
+* Sets `agoraKit` to `nil` to remove the reference to the `AgoraRtcEngineKit` object.
 
 
 ### Mute Audio and Video
-To allow the user to mute audio, the `IBAction` for the mute button invokes `agoraKit.muteLocalAudioStream()` passing in `sender.isSelected`:
+To allow the user to mute audio, the `IBAction` for the mute button invokes `agoraKit.muteLocalAudioStream()`:
 
 ```swift
 @IBAction func didClickMuteButton(_ sender: UIButton) {
@@ -356,7 +356,7 @@ To allow the user to mute audio, the `IBAction` for the mute button invokes `ago
 }
 ```
 
-Once muted the helper method `resetHideButtonsTimer()` is invoked to cancel any view perform requests and to ensure the control buttons are hidden:
+Once audio is muted, the helper method `resetHideButtonsTimer()` is invoked to cancel any view requests and to ensure the control buttons are hidden:
 
 ```swift
 func resetHideButtonsTimer() {
@@ -365,7 +365,7 @@ func resetHideButtonsTimer() {
 }
 ```
 
-To allow the user to mute local video (i.e. to prevent video of the current user from being broadcast to other users), the `IBAction` for the *video button* invokes [muteLocalVideoStream](https://docs.agora.io/en/2.2/product/Interactive%20Broadcast/API%20Reference/communication_mac_video#mute-a-specified-remote-audio-stream-muteremoteaudiostream):
+To allow the user to mute local video (i.e. to prevent video of the current user from being broadcast to other users), the `IBAction` for the *video button* invokes [muteLocalVideoStream()](https://docs.agora.io/en/2.2/product/Interactive%20Broadcast/API%20Reference/communication_mac_video#mute-a-specified-remote-audio-stream-muteremoteaudiostream):
 
 ```swift
 @IBAction func didClickVideoMuteButton(_ sender: UIButton) {
@@ -381,7 +381,7 @@ To allow the user to mute local video (i.e. to prevent video of the current user
 Once muted, the views related to the local view are hidden and the helper method `resetHideButtonsTimer()` is invoked to cancel any *perform* requests and to ensure the control buttons are hidden.
 
 ### Toggle Cameras
-To enable the user to choose between the front and rear cameras, an `IBAction` for the *camera switch button* invokes [switchCamera](https://docs.agora.io/en/2.2/product/Interactive%20Broadcast/Solutions/live_plus_ios?platform=iOS#id3) to add the camera switch functionality:  
+To enable the user to choose between the front and rear cameras, an `IBAction` for the *camera switch button* invokes [switchCamera()](https://docs.agora.io/en/2.2/product/Interactive%20Broadcast/Solutions/live_plus_ios?platform=iOS#id3) to add the camera switch functionality:  
 
 ```swift
 @IBAction func didClickSwitchCameraButton(_ sender: UIButton) {
