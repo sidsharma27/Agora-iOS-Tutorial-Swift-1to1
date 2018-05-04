@@ -39,27 +39,27 @@ In order to build and run the sample application you must obtain an App ID:
 The following are the main steps that were used to create the sample:
 
 * [Set up the project](#set-up-the-project)
- * * [Import the Agora SDK](#import-the-agora-sdk)
- * * [Set Permissions](#set-permissions)
- * * [Create Visual Assets](#create-visual-assets)
- * * [Design the User Interface](#design-the-user-interface)
- * * [Prepare the Video Call View Controller](#prepare-the-video-call-view-controller)
- * * [Prepare the Channel View Controller](#prepare-the-channel-view-controller)
+ * [Import the Agora SDK](#import-the-agora-sdk)
+ * [Set Permissions](#set-permissions)
+ * [Create Visual Assets](#create-visual-assets)
+ * [Design the User Interface](#design-the-user-interface)
+ * [Prepare the Video Call View Controller](#prepare-the-video-call-view-controller)
+ * [Prepare the Channel View Controller](#prepare-the-channel-view-controller)
 
 * [Configure Resources](#configure-resources)
- * * [Create an Agora Instance](#create-an-agora-instance)
- * * [Configure the Video Mode](#configure-the-video-mode)
- * * [Join a Channel](#join-a-channel)
- * * [Set up Local Video](#set-up-local-video)
- * * [Add Delegates](#add-delegates)
+ * [Create an Agora Instance](#create-an-agora-instance)
+ * [Configure the Video Mode](#configure-video-mode)
+ * [Join a Channel](#join-a-channel)
+ * [Set up Local Video](#set-up-local-video)
+ * [Set up Video Call View Controller](#set-up-video-call-view-controller)
 
 * [Manage Communication Features](#manage-communication-features)
- * * [Channel Selection](#channel-selection)
- * * [Hang Up and End the Call](#hang-up-and-end-the-call)
- * * [Mute Audio and Video](#mute-audio-and-video)
- * * [Toggle Cameras](#toggle-cameras)
- * * [Hide Video Views](#hide-video-views)
- * * [Hide Buttons](#hide-buttons)
+ * [Channel Selection](#channel-selection)
+ * [Hang Up and End the Call](#hang-up-and-end-the-call)
+ * [Mute Audio and Video](#mute-audio-and-video)
+ * [Toggle Cameras](#toggle-cameras)
+ * [Hide Video Views](#hide-video-views)
+ * [Hide Buttons](#hide-buttons)
 
 For details about the APIs used to develop this sample, see the [Agora.io Documentation](https://docs.agora.io/en/2.2).
 
@@ -98,15 +98,15 @@ The following icon assets for the user interface were added to the *Assets.xcass
 
 |Asset                   |Description                                                                                        |
 |------------------------|---------------------------------------------------------------------------------------------------|
-|hangUpButton|an image of a red telephone for a *hang up* button.|
-|localVideoMutedBg|the background image for a video mute button.|
-|muteButton|a picture of a microphone to mute audio.|
-|muteButtonSelected|a picture of a microphone with a cross through it to indicate that the audio is muted.|
-|switchCameraButton|a picture of a camera and rotational arrows to switch between the two cameras.|
-|switchCameraButtonSelected|a highlighted picture of a camera and rotational arrows to indicate that the rear camera is in use.|
-|videoMuteButton|a picture of a camera to mute video.|
-|videoMuteButtonSelected|a picture of a camera highlighted to indicate that video is muted.|
-|videoMuteButtonIndicator|a picture of a camera crossed out to indicate the camera is off.|
+|`hangUpButton`|An image of a red telephone for a *hang up* button.|
+|`localVideoMutedBg`|The background image for a video mute button.|
+|`muteButton`|A picture of a microphone to mute audio.|
+|`muteButtonSelected`|A picture of a microphone with a cross through it to indicate that the audio is muted.|
+|`switchCameraButton`|A picture of a camera and rotational arrows to switch between the two cameras.|
+|`switchCameraButtonSelected`|A highlighted picture of a camera and rotational arrows to indicate that the rear camera is in use.|
+|`videoMuteButton`|A picture of a camera to mute video.|
+|`videoMuteButtonSelected`|A picture of a camera highlighted to indicate that video is muted.|
+|`videoMuteButtonIndicator`|A picture of a camera crossed out to indicate the camera is off.|
 
 
 
@@ -121,13 +121,13 @@ The main aspects of the Video Call View Controller on the storyboard are shown h
 
 |Component                |Description                                                                                                                                 |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-|View                     |a view which handles the main video feed. This view contains other views (described next).|
-|remoteVideo              |a view showing the remote, incoming video feed (i.e the video that the user will see).|
-|remoteVideoMutedIndicator|a view showing an icon indicating that remote video is muted.|
-|localVideo               |a smaller view at the top right corner showing the local video feed.|
-|localVideoMutedBg        |a gray background to indicate that local video is muted when the user pauses their video feed.|
-|localVideoMutedIndicator |an icon which is overlaid and centered over the `localVideoMutedBg` view to indicate that local video is muted.|
-|controlButtons           |a view that encapsulates four buttons: Pause Video, Audio Mute, Switch Camera, and Hang Up. Each button uses the art assets described above.|
+|`View`                     |A view which handles the main video feed. This view contains other views (described next).|
+|`remoteVideo`             |A view showing the remote, incoming video feed (i.e the video that the user will see).|
+|`remoteVideoMutedIndicator`|A view showing an icon indicating that remote video is muted.|
+|`localVideo`               |A smaller view at the top right corner showing the local video feed.|
+|`localVideoMutedBg`        |A gray background to indicate that local video is muted when the user pauses their video feed.|
+|`localVideoMutedIndicator` |An icon which is overlaid and centered over the `localVideoMutedBg` view to indicate that local video is muted.|
+|`controlButtons`           |A view that encapsulates four buttons: Pause Video, Audio Mute, Switch Camera, and Hang Up. Each button uses the art assets described above.|
 
 #### Prepare the Channel View Controller
 *SetChannelViewController.swift* defines a view that handles channel selection.
@@ -170,7 +170,7 @@ override func viewDidLoad() {
 }
 ```
 
-### Configure the Video Mode
+### Configure Video Mode
 The next step is to enable video mode, configure the video encoding profile, and specify if the width and height can change when switching from portrait to landscape:
 
 ``` swift
@@ -249,7 +249,7 @@ override func viewDidLoad() {
 
 The call to [setupLocalVideo](https://docs.agora.io/en/2.2/product/Interactive%20Broadcast/API%20Reference/communication_mac_video) then passes `AgoraRtcVideoCanvas` object that was just created.
 
-### Add Delegates
+### Set up Video Call View Controller
 The `VideoCallViewController` class extends `AgoraRtcEngineDelegate`:
 
 ``` swift
