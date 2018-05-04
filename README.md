@@ -4,9 +4,9 @@ This tutorial enables you to quickly get started in your development efforts to 
 
 * Start and end audio/visual communication between two users.
 * Join a communication channel.
-* Mute or unmute audio.
-* Enable or disable video.
-* Choose between the front or rear camera.
+* Mute and unmute audio.
+* Enable and disable video.
+* Switch between the front and rear cameras.
 
 ## Prerequisites
 - Xcode
@@ -30,7 +30,7 @@ In order to build and run the sample application you must obtain an App ID:
 4. Open **VideoCallViewController.swift**.
 5. Locate the following line and replace *<#Your App Id#>* with the App ID that you obtained from the Dashboard.
 
-```let AppID: String = <#Your App Id#>                  // Tutorial Step 1```
+   ```let AppID: String = <#Your App Id#>```
 
 6. Build and run the project. This should display the application on your iOS device or emulator.
 
@@ -56,13 +56,13 @@ To set up the project:
 ### Import the Agora SDK
 The sample's Xcode project is a *Single View Application*. 
 
-To integrate the SDK into the project, a pod file was created in the same location as the Xcode project file using the following command:
+To integrate the SDK into the project, create a pod file in the same location as the Xcode project file:
 
 ```bash
 pod init
 ```
 
-The new pod file was modified to include the `AgoraRtcEngine_iOS` pod:
+Modify the new pod file to include the `AgoraRtcEngine_iOS` pod:
 
 ```bash
 target 'AgoraVideoQuickstart' do
@@ -71,14 +71,14 @@ target 'AgoraVideoQuickstart' do
 end
 ```
 
-The modified file was then installed using the following command:
+Install the pod file:
 
 ```bash
 pod install
 ```
 
 ### Set Permissions
-In the `Info.plist` file, the privacy settings for the camera and microphone were set to **Video Chat** to allow the app to access them:
+In the `Info.plist` file, set the privacy settings for the camera and microphone to **Video Chat** to allow the app to access them:
 ![Info_Plist.png](/Info_Plist.png)
 
 ### Create Visual Assets
@@ -109,13 +109,13 @@ The main aspects of the Video Call View Controller on the storyboard are shown h
 
 |Component                |Description                                                                                                                                 |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-|`View`                     |A view which handles the main video feed. This view contains other views (described next).|
-|`remoteVideo`             |A view showing the remote, incoming video feed (i.e the video that the user will see).|
-|`remoteVideoMutedIndicator`|A view showing an icon indicating that remote video is muted.|
+|`View`                     |A view that handles the main video feed. This view contains other views.|
+|`remoteVideo`             |A view displaying the remote, incoming video feed (for example, the video the user will see).|
+|`remoteVideoMutedIndicator`|A view displaying an icon indicating that remote video is muted.|
 |`localVideo`               |A smaller view at the top right corner showing the local video feed.|
-|`localVideoMutedBg`        |A gray background to indicate that local video is muted when the user pauses their video feed.|
-|`localVideoMutedIndicator` |An icon which is overlaid and centered over the `localVideoMutedBg` view to indicate that local video is muted.|
-|`controlButtons`           |A view that encapsulates four buttons: Pause Video, Audio Mute, Switch Camera, and Hang Up. Each button uses the art assets described above.|
+|`localVideoMutedBg`        |A gray background to indicate that local video is muted when the user pauses the video feed.|
+|`localVideoMutedIndicator` |An icon that is overlaid and centered over the `localVideoMutedBg` view to indicate that local video is muted.|
+|`controlButtons`           |A view that encapsulates four buttons: **Pause Video**, **Audio Mute**, **Switch Camera**, and **Hang Up**. Each button uses the art assets described above.|
 
 #### Prepare the Channel View Controller
 *SetChannelViewController.swift* defines a view that handles channel selection.
@@ -123,18 +123,18 @@ The main aspects of the Video Call View Controller on the storyboard are shown h
 The main aspects of the Channel View Controller on the storyboard are shown here:
 ![Storyboard_Setup2.png](/StoryboardSetup2.png)
 
-* A segue (`exitCall`) from `VideoCallViewController` to `SetChannelViewController` is called to end the video call once the user has pressed the *Hang Up* button.
-* A text field for the user to input a channel name 
+* A segue (`exitCall`) from `VideoCallViewController` to `SetChannelViewController` is invoked to end the video call once the user has pressed the *Hang Up* button.
+* A text field where the user inputs a channel name.
 * A button to start the video call.
  
 
 ## Configure Resources
 To configure 1-to-1 communication resources:
- * [Create an Agora Instance](#create-an-agora-instance)
- * [Configure the Video Mode](#configure-video-mode)
- * [Join a Channel](#join-a-channel)
- * [Set up Local Video](#set-up-local-video)
- * [Set up Video Call View Controller](#set-up-video-call-view-controller)
+ 1. [Create an Agora Instance](#create-an-agora-instance)
+ 2. [Configure the Video Mode](#configure-video-mode)
+ 3. [Join a Channel](#join-a-channel)
+ 4. [Set up Local Video](#set-up-local-video)
+ 5. [Set up Video Call View Controller](#set-up-video-call-view-controller)
 
 ### Create an Agora Instance
 The code samples in this section are from *VideoCallViewController.Swift*.
