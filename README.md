@@ -36,6 +36,15 @@ In order to build and run the sample application you must obtain an App ID:
 
 
 ## Steps to Create the Sample 
+* [Set up the project](#set-up-the-project)
+* [Configure Resources](#configure-resources)
+* [Manage Communication Features](#manage-communication-features)
+
+
+For details about the APIs used to develop this sample, see the [Agora.io Documentation](https://docs.agora.io/en/2.2).
+
+## Set up the project
+
 To set up the project:
 * [Import the Agora SDK](#import-the-agora-sdk)
 * [Set Permissions](#set-permissions)
@@ -43,26 +52,6 @@ To set up the project:
 * [Design the User Interface](#design-the-user-interface)
 * [Prepare the Video Call View Controller](#prepare-the-video-call-view-controller)
 * [Prepare the Channel View Controller](#prepare-the-channel-view-controller)
-
-To configure 1-to-1 communication resources:
- * [Create an Agora Instance](#create-an-agora-instance)
- * [Configure the Video Mode](#configure-video-mode)
- * [Join a Channel](#join-a-channel)
- * [Set up Local Video](#set-up-local-video)
- * [Set up Video Call View Controller](#set-up-video-call-view-controller)
-
-To implement the following communication features:
-* [Channel Selection](#channel-selection)
-* [Hang Up and End the Call](#hang-up-and-end-the-call)
-* [Mute Audio and Video](#mute-audio-and-video)
-* [Toggle Cameras](#toggle-cameras)
-* [Hide Video Views](#hide-video-views)
-* [Hide Buttons](#hide-buttons)
-
-
-For details about the APIs used to develop this sample, see the [Agora.io Documentation](https://docs.agora.io/en/2.2).
-
-## Set up the project
 
 ### Import the Agora SDK
 The sample's Xcode project is a *Single View Application*. 
@@ -140,7 +129,12 @@ The main aspects of the Channel View Controller on the storyboard are shown here
  
 
 ## Configure Resources
-The following subsections describe how the Agora API is used to add Agora functionality to the app.
+To configure 1-to-1 communication resources:
+ * [Create an Agora Instance](#create-an-agora-instance)
+ * [Configure the Video Mode](#configure-video-mode)
+ * [Join a Channel](#join-a-channel)
+ * [Set up Local Video](#set-up-local-video)
+ * [Set up Video Call View Controller](#set-up-video-call-view-controller)
 
 ### Create an Agora Instance
 The code samples in this section are from *VideoCallViewController.Swift*.
@@ -284,6 +278,13 @@ The `rtcEngine(_engine:  AgoraRtcEngineKit, didOfflineOfUid uid: UInt, reason: A
 The `rtcEngine(engine: AgoraRtcEngineKit, didVideoMuted muted: UInt, byUid: UInt)` is invoked when a remote user pauses their stream. This method toggles the remote video user inteface elements.
 
 ## Manage Communication Features
+Implement the following communiction features:
+* [Channel Selection](#channel-selection)
+* [Hang Up and End the Call](#hang-up-and-end-the-call)
+* [Mute Audio and Video](#mute-audio-and-video)
+* [Toggle Cameras](#toggle-cameras)
+* [Hide Video Views](#hide-video-views)
+* [Hide Buttons](#hide-buttons)
 
 ### Channel Selection
 The *Channel View Controller* allows the user to specify the channel they wish to join through a textbox for the channel name and a button to start the call. The text field was added as an outlet and the button was added as an action. The logic to handle this in the sample is implemented in `SetChannelViewController.swift`:
