@@ -16,13 +16,13 @@ This tutorial enables you to quickly get started in your development efforts to 
 This section shows you how to prepare, build, and run the sample application.
 
 ### Create an Account and Obtain an App ID
-In order to build and run the sample application you must obtain an App ID: 
+In order to build and run the sample application, you must specify an App ID: 
 
 1. Create a developer account at [agora.io](https://www.agora.io/). Once you finish the sign up process, you will be redirected to the Dashboard.
 2. Navigate in the Dashboard tree on the left to **Projects** > **Project List**.
 3. Locate the **Default Project** and copy the value for **App ID**.
 
-### Obtain and Build the Sample Application 
+### Build the Sample Application 
 
 1. Clone this repository.
 2. Open the project file **Agora iOS Tutorial.xcodeproj** in Xcode.
@@ -35,9 +35,9 @@ In order to build and run the sample application you must obtain an App ID:
 6. Build and run the project. This will display the application on your iOS device or emulator.
 
 
-## Steps to Create the Sample 
+## Develop the Application 
 
-Use this workflow to develop a 1-to-1 application:
+This workflow was used to develop the 1-to-1 sample application:
 
 1. [Set up the project](#set-up-the-project)
 2. [Configure Resources](#configure-resources)
@@ -182,7 +182,7 @@ override func viewDidLoad() {
 }
 ```
 
-In the sample, a helper method called `setupVideo()` contains this logic and is invoked by `viewDidLoad()`. It starts by enabling video with [enableVideo()](https://docs.agora.io/en/2.2/product/Video/API%20Reference/communication_ios_video?platform=iOS). The video encoding profile is then set to 360p and the `swapWidthAndHeight` parameter is set to false via [setVideoProfile()](https://docs.agora.io/en/2.2/product/Video/API%20Reference/communication_ios_video). Each profile includes a set of parameters such as resolution, frame rate, and bitrate. If a device's camera does not support the specified resolution, the SDK automatically chooses a suitable camera resolution. However, the encoder resolution still uses the profile specified by `setVideoProfile()`. 
+In the sample, a helper method called `setupVideo()` contains this logic and is invoked by `viewDidLoad()`. It starts by enabling video with [enableVideo()](https://docs.agora.io/en/2.2/product/Video/API%20Reference/communication_ios_video?platform=iOS). The video encoding profile is then set to 360p and the `swapWidthAndHeight` parameter is set to `false` via [setVideoProfile()](https://docs.agora.io/en/2.2/product/Video/API%20Reference/communication_ios_video). Each profile includes a set of parameters such as resolution, frame rate, and bitrate. If a device's camera does not support the specified resolution, the SDK automatically chooses a suitable camera resolution. However, the encoder resolution still uses the profile specified by `setVideoProfile()`. 
 
 Since this configuration takes place before entering a channel, the end user will initially begin in video mode rather than audio mode. If video mode were to be enabled enabled during a call, the app will switch from audio to video mode. 
 
@@ -201,7 +201,7 @@ func joinChannel() {
 }
 ```
 
-The `channelName` parameter takes in the name of the channel to join, and the value of 0 for the `uid` parameter allows Agora to chose a random ID for the channel ID. 
+The `channelName` parameter receives the name of the channel to join, and the value of 0 for the `uid` parameter allows Agora to chose a random ID for the channel ID. 
 The call using [agoraKit](https://docs.agora.io/en/2.2/product/Voice/API%20Reference/communication_mac_audio) enables the speakerphone when using Agora, and `UIApplication.shared.isIdleTimerDisabled` disables the application's idle timer to prevent the application from idling while the app is running.
 
 **Note**: Users in the same channel can talk to each other, but users with different app IDs cannot call each other even if they join the same channel.
