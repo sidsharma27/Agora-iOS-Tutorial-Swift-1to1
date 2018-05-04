@@ -143,7 +143,7 @@ The code samples in this section are in *VideoCallViewController.Swift*.
 
 `AgoraRtcEngineKit` is the interface of the Agora API that provides communication functionality. Once imported, create a singleton instance by invoking [sharedEngine](https://docs.agora.io/en/2.2/product/Interactive%20Gaming/API%20Reference/game_ios?platform=iOS) during initialization, passing the application ID and a reference to `self` as the delegate. The Agora API uses delegates to inform the application about Agora engine runtime events such as joining or leaving a channel and the addition of new participants. 
 
-In the sample project, a helper method called `initializeAgoraEngine()` contains this logic and is invoked by `viewDidLoad()`;
+In the sample project, a helper method called `initializeAgoraEngine()` contains this logic and is invoked by `viewDidLoad()`:
 
 
 ``` swift
@@ -182,9 +182,9 @@ override func viewDidLoad() {
 }
 ```
 
-In the sample, a helper method called `setupVideo()` contains this logic and is invoked by `viewDidLoad()`. It starts by enabling video with [enableVideo](https://docs.agora.io/en/2.2/product/Video/API%20Reference/communication_ios_video?platform=iOS). The video encoding profile is then set to 360p and the `swapWidthAndHeight` parameter is set to false via [setVideoProfile](https://docs.agora.io/en/2.2/product/Video/API%20Reference/communication_ios_video). Each profile includes a set of parameters such as: resolution, frame rate, bitrate, etc. If a device's camera does not support the specified resolution, the SDK automatically chooses a suitable camera resolution. However, the encoder resolution still uses the profile specified by `setVideoProfile()`. 
+In the sample, a helper method called `setupVideo()` contains this logic and is invoked by `viewDidLoad()`. It starts by enabling video with `[enableVideo()](https://docs.agora.io/en/2.2/product/Video/API%20Reference/communication_ios_video?platform=iOS)`. The video encoding profile is then set to 360p and the `swapWidthAndHeight` parameter is set to false via `[setVideoProfile()](https://docs.agora.io/en/2.2/product/Video/API%20Reference/communication_ios_video)`. Each profile includes a set of parameters such as resolution, frame rate, and bitrate. If a device's camera does not support the specified resolution, the SDK automatically chooses a suitable camera resolution. However, the encoder resolution still uses the profile specified by `setVideoProfile()`. 
 
-Since this configuration takes place before entering a channel, the end user will start in video mode rather than audio mode. If video mode were to be enabled enabled during a call, the app will switch from audio to video mode. 
+Since this configuration takes place before entering a channel, the end user will initially begin in video mode rather than audio mode. If video mode were to be enabled enabled during a call, the app will switch from audio to video mode. 
 
 
 ### Join a Channel
@@ -202,9 +202,9 @@ func joinChannel() {
 ```
 
 The `channelName` parameter takes in the name of the channel to join, and the value of 0 for the `uid` parameter allows Agora to chose a random ID for the channel ID. 
-The call to [agoraKit](https://docs.agora.io/en/2.2/product/Voice/API%20Reference/communication_mac_audio) enables the speakerphone when using Agora, and `UIApplication.shared.isIdleTimerDisabled` disables the application's idle timer to prevent the application from idling while the app is running.
+The call using `[agoraKit](https://docs.agora.io/en/2.2/product/Voice/API%20Reference/communication_mac_audio)` enables the speakerphone when using Agora, and `UIApplication.shared.isIdleTimerDisabled` disables the application's idle timer to prevent the application from idling while the app is running.
 
-**Note**: users in the same channel can talk to each other, however users with different app IDs cannot call each other (even if they join the same channel).
+**Note**: Users in the same channel can talk to each other, but users with different app IDs cannot call each other even if they join the same channel.
 
 In the sample, the helper method `joinChannel()` is invoked by `viewDidLoad()`:
 
@@ -218,7 +218,7 @@ In the sample, the helper method `joinChannel()` is invoked by `viewDidLoad()`:
 ```
 
 ### Set up Local Video
-The logic for the local video feed is contained within a helper method called `setupLocalVideo()` that is invoked by `viewDidLoad()`:
+The logic for the local video feed is contained within a helper method called `setupLocalVideo()`, which is invoked by `viewDidLoad()`:
 
 ``` swift
 func setupLocalVideo() {
@@ -238,11 +238,11 @@ override func viewDidLoad() {
 ```
 
 `setupLocalVideo()` creates an `AgoraRtcVideoCanvas` object for the video stream and initializes the following properties:
-* **uid**: a value of 0 allows Agora to chose a random ID for the stream feed.
-* **view**: set to the `localVideo` view from the storyboard.
-* **renderMode**: set to `render_Fit` to ensure that if the video size is different than that of the display window, the video is resized proportionally to fit the window. 
+* **uid**: A value of 0 allows Agora to chose a random ID for the stream feed.
+* **view**: Set to the `localVideo` view from the storyboard.
+* **renderMode**: Set to `render_Fit` to ensure the video is resized proportionally to fit the display window. 
 
-The call to [setupLocalVideo](https://docs.agora.io/en/2.2/product/Interactive%20Broadcast/API%20Reference/communication_mac_video) then passes `AgoraRtcVideoCanvas` object that was just created.
+The call to `[setupLocalVideo()](https://docs.agora.io/en/2.2/product/Interactive%20Broadcast/API%20Reference/communication_mac_video)` passes the `AgoraRtcVideoCanvas` object that was just created.
 
 ### Set up Video Call View Controller
 The `VideoCallViewController` class extends `AgoraRtcEngineDelegate`:
