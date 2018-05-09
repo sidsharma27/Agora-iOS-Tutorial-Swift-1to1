@@ -295,7 +295,7 @@ The *Channel View Controller* allows the user to specify the channel they wish t
 @IBOutlet weak var channelName: UITextField!
 
 @IBAction func startCall(_ sender: UIButton) {
-    if (channelName.text?.isEmpty)! {
+    if !(channelName.text?.isEmpty) {
         self.performSegue(withIdentifier: "startCall", sender: self)
     } else {
         print("Enter Channel Name")
