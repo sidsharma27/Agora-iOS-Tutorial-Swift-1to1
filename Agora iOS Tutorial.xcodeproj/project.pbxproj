@@ -8,9 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		077322E71E8A68A100ABE911 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 077322E61E8A68A100ABE911 /* libresolv.tbd */; };
-		1A2655D51D3F35E700BDBA68 /* AppID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2655D41D3F35E700BDBA68 /* AppID.swift */; };
 		1ABDEE421D383BE4007DE451 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABDEE411D383BE4007DE451 /* AppDelegate.swift */; };
-		1ABDEE441D383BE4007DE451 /* VideoChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABDEE431D383BE4007DE451 /* VideoChatViewController.swift */; };
+		1ABDEE441D383BE4007DE451 /* VideoCallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABDEE431D383BE4007DE451 /* VideoCallViewController.swift */; };
 		1ABDEE471D383BE4007DE451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDEE451D383BE4007DE451 /* Main.storyboard */; };
 		1ABDEE491D383BE4007DE451 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDEE481D383BE4007DE451 /* Assets.xcassets */; };
 		1ABDEE4C1D383BE4007DE451 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDEE4A1D383BE4007DE451 /* LaunchScreen.storyboard */; };
@@ -21,15 +20,16 @@
 		1ABDEE781D383C62007DE451 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABDEE771D383C62007DE451 /* AudioToolbox.framework */; };
 		1ABDEE7A1D383C66007DE451 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABDEE791D383C66007DE451 /* VideoToolbox.framework */; };
 		1ABDEE7C1D383C71007DE451 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ABDEE7B1D383C71007DE451 /* CoreMedia.framework */; };
+		1F7A3EDE20069C550005D7C7 /* SetChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7A3EDD20069C550005D7C7 /* SetChannelViewController.swift */; };
 		20BB0F231E8A828C003225FC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BB0F221E8A828C003225FC /* libc++.tbd */; };
+		3799E9FE38B9023C869C3E72 /* Pods_Agora_iOS_Tutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 326BE9E749A6E9328CA7EBCC /* Pods_Agora_iOS_Tutorial.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		077322E61E8A68A100ABE911 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
-		1A2655D41D3F35E700BDBA68 /* AppID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppID.swift; path = VideoChat/AppID.swift; sourceTree = "<group>"; };
 		1ABDEE3E1D383BE4007DE451 /* Agora iOS Tutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Agora iOS Tutorial.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABDEE411D383BE4007DE451 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1ABDEE431D383BE4007DE451 /* VideoChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoChatViewController.swift; path = VideoChat/VideoChatViewController.swift; sourceTree = "<group>"; };
+		1ABDEE431D383BE4007DE451 /* VideoCallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCallViewController.swift; sourceTree = "<group>"; };
 		1ABDEE461D383BE4007DE451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1ABDEE481D383BE4007DE451 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ABDEE4B1D383BE4007DE451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,8 +43,11 @@
 		1ABDEE7B1D383C71007DE451 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		1ABDEE7D1D383C7C007DE451 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1ABDEE7F1D383C90007DE451 /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "/usr/lib/libc++.1.dylib"; sourceTree = "<absolute>"; };
-		1ABDEE831D383CD0007DE451 /* Agora-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Agora-Bridging-Header.h"; sourceTree = "<group>"; };
+		1F7A3EDD20069C550005D7C7 /* SetChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetChannelViewController.swift; sourceTree = "<group>"; };
 		20BB0F221E8A828C003225FC /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		326BE9E749A6E9328CA7EBCC /* Pods_Agora_iOS_Tutorial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Agora_iOS_Tutorial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA7B0B8CA87E6167453E9C96 /* Pods-Agora iOS Tutorial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agora iOS Tutorial.release.xcconfig"; path = "Pods/Target Support Files/Pods-Agora iOS Tutorial/Pods-Agora iOS Tutorial.release.xcconfig"; sourceTree = "<group>"; };
+		E995A3744EDC745FFAB20E24 /* Pods-Agora iOS Tutorial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Agora iOS Tutorial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Agora iOS Tutorial/Pods-Agora iOS Tutorial.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +64,7 @@
 				1ABDEE741D383C34007DE451 /* CoreMotion.framework in Frameworks */,
 				1ABDEE721D383C2C007DE451 /* AVFoundation.framework in Frameworks */,
 				1ABDEE701D383C26007DE451 /* AgoraRtcEngineKit.framework in Frameworks */,
+				3799E9FE38B9023C869C3E72 /* Pods_Agora_iOS_Tutorial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +77,7 @@
 				1ABDEE401D383BE4007DE451 /* Agora iOS Tutorial */,
 				1ABDEE811D383C96007DE451 /* Frameworks */,
 				1ABDEE3F1D383BE4007DE451 /* Products */,
+				2174E81A1F5FF701A9E86ED8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,13 +92,13 @@
 		1ABDEE401D383BE4007DE451 /* Agora iOS Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				1ABDEE841D383EB3007DE451 /* Video Chat */,
+				1ABDEE431D383BE4007DE451 /* VideoCallViewController.swift */,
 				1ABDEE411D383BE4007DE451 /* AppDelegate.swift */,
-				1ABDEE831D383CD0007DE451 /* Agora-Bridging-Header.h */,
 				1ABDEE451D383BE4007DE451 /* Main.storyboard */,
 				1ABDEE481D383BE4007DE451 /* Assets.xcassets */,
 				1ABDEE4A1D383BE4007DE451 /* LaunchScreen.storyboard */,
 				1ABDEE4D1D383BE4007DE451 /* Info.plist */,
+				1F7A3EDD20069C550005D7C7 /* SetChannelViewController.swift */,
 			);
 			path = "Agora iOS Tutorial";
 			sourceTree = "<group>";
@@ -112,17 +117,18 @@
 				1ABDEE731D383C34007DE451 /* CoreMotion.framework */,
 				1ABDEE711D383C2C007DE451 /* AVFoundation.framework */,
 				1ABDEE6F1D383C26007DE451 /* AgoraRtcEngineKit.framework */,
+				326BE9E749A6E9328CA7EBCC /* Pods_Agora_iOS_Tutorial.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1ABDEE841D383EB3007DE451 /* Video Chat */ = {
+		2174E81A1F5FF701A9E86ED8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1ABDEE431D383BE4007DE451 /* VideoChatViewController.swift */,
-				1A2655D41D3F35E700BDBA68 /* AppID.swift */,
+				E995A3744EDC745FFAB20E24 /* Pods-Agora iOS Tutorial.debug.xcconfig */,
+				CA7B0B8CA87E6167453E9C96 /* Pods-Agora iOS Tutorial.release.xcconfig */,
 			);
-			name = "Video Chat";
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,9 +138,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1ABDEE661D383BE4007DE451 /* Build configuration list for PBXNativeTarget "Agora iOS Tutorial" */;
 			buildPhases = (
+				541C9A4FBFBECDA6944A98B5 /* [CP] Check Pods Manifest.lock */,
 				1ABDEE3A1D383BE4007DE451 /* Sources */,
 				1ABDEE3B1D383BE4007DE451 /* Frameworks */,
 				1ABDEE3C1D383BE4007DE451 /* Resources */,
+				7D54C757C2EB3C483AE27D83 /* [CP] Embed Pods Frameworks */,
+				1CAEDC8F13B6595688B9C1CC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -157,9 +166,9 @@
 				TargetAttributes = {
 					1ABDEE3D1D383BE4007DE451 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 48TB6ZZL5S;
+						DevelopmentTeam = SS68NK2VAB;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -194,14 +203,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1CAEDC8F13B6595688B9C1CC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Agora iOS Tutorial/Pods-Agora iOS Tutorial-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		541C9A4FBFBECDA6944A98B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Agora iOS Tutorial-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D54C757C2EB3C483AE27D83 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Agora iOS Tutorial/Pods-Agora iOS Tutorial-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1ABDEE3A1D383BE4007DE451 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ABDEE441D383BE4007DE451 /* VideoChatViewController.swift in Sources */,
+				1ABDEE441D383BE4007DE451 /* VideoCallViewController.swift in Sources */,
 				1ABDEE421D383BE4007DE451 /* AppDelegate.swift in Sources */,
-				1A2655D51D3F35E700BDBA68 /* AppID.swift in Sources */,
+				1F7A3EDE20069C550005D7C7 /* SetChannelViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,11 +379,13 @@
 		};
 		1ABDEE671D383BE4007DE451 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E995A3744EDC745FFAB20E24 /* Pods-Agora iOS Tutorial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuhua Gong (TH5SJ72C94)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuhua Gong (TH5SJ72C94)";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SS68NK2VAB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -331,22 +393,23 @@
 				);
 				INFOPLIST_FILE = "Agora iOS Tutorial/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.agora.Agora-iOS-Tutorial";
+				PRODUCT_BUNDLE_IDENTIFIER = io.agora.1to1Video;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "87f6e50f-6472-4e90-a6d4-f19c7bd21f23";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Agora iOS Tutorial/Agora-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		1ABDEE681D383BE4007DE451 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA7B0B8CA87E6167453E9C96 /* Pods-Agora iOS Tutorial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Yuhua Gong (TH5SJ72C94)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yuhua Gong (TH5SJ72C94)";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SS68NK2VAB;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -354,11 +417,10 @@
 				);
 				INFOPLIST_FILE = "Agora iOS Tutorial/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.agora.Agora-iOS-Tutorial";
+				PRODUCT_BUNDLE_IDENTIFIER = io.agora.1to1Video;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "87f6e50f-6472-4e90-a6d4-f19c7bd21f23";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Agora iOS Tutorial/Agora-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
